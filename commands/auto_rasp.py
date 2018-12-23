@@ -1,7 +1,5 @@
 import command_system
 import psycopg2
-import pprint
-import create_db
 from settings import *
 conn = psycopg2.connect(
     "dbname='masya' "

@@ -4,7 +4,6 @@ import command_system
 def info(user_id, content):
     message = ""
     for c in command_system.command_list:
-        print(c)
         message += c.keys[0] + " - " + c.description + "\n"
     return message, ""
 

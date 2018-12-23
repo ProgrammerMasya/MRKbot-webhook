@@ -63,9 +63,9 @@ def get_answer(chat_id, action, content=None):
                     return message, attachment, file
     if distance < len(action) * 0.4:
         if command.file:
-            message, attachment, file = command.process()
+            message, attachment, file = command.process(chat_id, content)
         else:
-            message, attachment = command.process()
+            message, attachment,  = command.process(chat_id, content)
         message = f'Я понял ваш запрос как "{key}"\n\n' + message
     return message, attachment, file
 
