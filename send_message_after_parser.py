@@ -5,10 +5,10 @@ from app.db.db import DB
 
 
 db_obj = DB(
-    "dbname=masya' "
+    "dbname='masya' "
     f"user='{config['db_user']}' "
     f"host='{config['db_host']}' "
-    f"password='{config['db_password']}"
+    f"password='{config['db_password']}'"
 )
 
 vk_obj = Vk(config['token'])
