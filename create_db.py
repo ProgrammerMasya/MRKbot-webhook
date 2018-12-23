@@ -18,7 +18,7 @@ def create_database():
     cur.execute('CREATE DATABASE ' + dbname)
     con.commit()
     con = psycopg2.connect(
-        "dbname='denis' "
+        f"dbname='{dbname}' "
         f"user='{config['db_user']}'"
         f"host='{config['db_host']}'"
         f"password='{config['db_password']}'"
