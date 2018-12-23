@@ -5,13 +5,13 @@ from settings import *
 def create_database():
     con = None
     con = psycopg2.connect(
-    "dbname='postgres' "
-    "user='postgres' "
-    "host='localhost' "
+    f"dbname='{config['db_name']}'"
+    f"user='{config['db_user']}'"
+    f"host='{config['db_host']}'"
     f"password='{config['db_password']}'"
 )
 
-    dbname = "denis"
+    dbname = "masya"
 
     con.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
     cur = con.cursor()

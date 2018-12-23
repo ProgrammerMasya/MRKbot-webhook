@@ -1,12 +1,13 @@
 import command_system
 import psycopg2
 import pprint
-
+import create_db
+from settings import *
 conn = psycopg2.connect(
-    "dbname='Masya' "
-    "user='postgres' "
-    "host='localhost' "
-    "password='vlad3052001'"
+    "dbname='masya' "
+    f"user='{config['db_user']}' "
+    f"host='{config['db_host']}' "
+    f"password='{config['db_password']}'"
 )
 
 cursor = conn.cursor()
@@ -37,7 +38,6 @@ def autorasp(user_id, content):
         cursor.execute(""" DELETE FROM mrk WHERE vk_id=%s """, (user_id,))
         conn.commit()
         message = "Подписка отменена"
-        print(user_id)
 
 
     else:
