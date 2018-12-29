@@ -5,11 +5,11 @@ from settings import *
 def create_database():
     con = None
     con = psycopg2.connect(
-    f"dbname='{config['db_name']}'"
-    f"user='{config['db_user']}'"
-    f"host='{config['db_host']}'"
-    f"password='{config['db_password']}'"
-)
+        f"dbname='{config['db_name']}'"
+        f"user='{config['db_user']}'"
+        f"host='{config['db_host']}'"
+        f"password='{config['db_password']}'"
+    )
 
     dbname = "masya"
 
