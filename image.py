@@ -2,7 +2,7 @@ import convertapi
 
 
 def main():
-    convertapi.api_secret = 'j6Bn42otkWPwr8EH'
+    convertapi.api_secret = 'jSoMzzgaS1AGmQsx'
 
     result = convertapi.convert('jpg', {'File': 'rasp/rasp.pdf'})
 
