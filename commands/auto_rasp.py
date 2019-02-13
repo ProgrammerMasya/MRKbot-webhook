@@ -41,10 +41,6 @@ def autorasp(user_id, content):
     else:
         message = "Указанной вами группы не существует"
 
-    cursor.execute(""" SELECT * FROM mrk """)
-    rows = cursor.fetchall()
-    print(rows)
-
     return message, "",
 
 
