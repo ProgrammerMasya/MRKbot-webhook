@@ -11,7 +11,6 @@ db_obj = DB(
 
 
 def get_data():
-    db_obj.add()
     return db_obj.get_all()
 
 
