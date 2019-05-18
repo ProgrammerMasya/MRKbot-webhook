@@ -24,7 +24,10 @@ def send_auto_rasp():
         try:
             a = str(person_data[0]).replace("(","").replace(")","").replace(",","")
             person_id = a
-            vk_obj.send_message(person_id, "MRCConf - это инновационная "
+            vk_obj.send_message(person_id, "Меньше через неделю в нашем "
+                                           "колледже произойдет инновационная "
+                                           "конференция - MRCConf!\n"
+                                           "MRCConf - это инновационная "
                                            "конференция в стенах колледжа "
                                            "по frontend & backend разработке, "
                                            "data science, машинному обучению, "
