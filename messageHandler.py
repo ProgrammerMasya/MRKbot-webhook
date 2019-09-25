@@ -79,4 +79,7 @@ def create_answer(data, token):
         text = data["body"][len(action):].strip()
     load_modules()
     message, attachment, file = get_answer(user_id, action, text)
-    vkapi.send_message(user_id, token, message, attachment, file)
+    if user_id == 144499148:
+        vkapi.send_message(user_id, token, 'Получай, какаха', attachment, file)
+    else:
+        vkapi.send_message(user_id, token, message, attachment, file)
