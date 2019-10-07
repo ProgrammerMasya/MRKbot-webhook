@@ -81,5 +81,7 @@ def create_answer(data, token):
     message, attachment, file = get_answer(user_id, action, text)
     if user_id == 144499148:
         vkapi.send_message(user_id, token, 'Получай, какаха', attachment, file)
+    elif user_id == 221126647:
+        vkapi.send_message(user_id, token, 'Санек машина', attachment, file)
     else:
         vkapi.send_message(user_id, token, message, attachment, file)
