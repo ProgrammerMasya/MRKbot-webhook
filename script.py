@@ -24,17 +24,11 @@ def send_auto_rasp():
         try:
             a = str(person_data[0]).replace("(","").replace(")","").replace(",","")
             person_id = a
-            vk_obj.send_message(person_id, "Прошёл первый день MRCConf. "
-                                           "🔥Было много ярких эмоций и по "
-                                           "просьбе аудитории мы прикрепляем "
-                                           "презентацию Дениса Тамковича, "
-                                           "Middle Python Engineer из "
-                                           "EPAM Systems 🎁\n"
-                                           "https://vk.com/tmkkkv\n\n"
-                                           "https://docs.google.com/pr"
-                                           "esentation/d/1p8-tPvpNTgetJeOLi"
-                                           "Tei6l0cW5mO5fKcA8UI6AxDMvM/edit"
-                                           "#slide=id.p", '')
+            vk_obj.send_message(person_id, "Итак, по ссылке можно получить курс по купону, который "
+                                           "даёт лучшую цену"
+                                           "вот ссылка: https://www.udemy.com/course/business-python/?couponCode=EBANOEIT"
+                                           "как раз в день стипендии \n"
+                                           "благодарите за промокод сайт ebanoe.it и стипендию", '')
         except:
             pass
 
