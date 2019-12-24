@@ -7,21 +7,9 @@ session = vk.Session()
 api = vk.API(session, v=5.0)
 
 
-def get_random_wall_picture(group_id, token):
-    max_num = api.photos.get(
-        owner_id=group_id, album_id="wall", count=0, access_token=token
-    )["count"]
-    num = random.randint(1, max_num)
-    photo = api.photos.get(
-        owner_id=str(group_id), album_id="wall", count=1, offset=num, access_token=token
-    )["items"][0]["id"]
-    attachment = "photo" + str(group_id) + "_" + str(photo)
-    return attachment
-
-
 def send_message(user_id, token, message, attachment="", file=None):
     if file:
-        _send_photo(user_id, token, message, file)
+        _send_photo_with_doc(user_id, token, message, file)
     else:
         api.messages.send(
             access_token=token,
@@ -31,7 +19,7 @@ def send_message(user_id, token, message, attachment="", file=None):
         )
 
 
-def _send_photo(user_id, token, message, file):
+def _save_photo(user_id, token, file):
     openedfile = open(file, "rb")
     files = {"file": openedfile}
     fileonserver = json.loads(
@@ -46,11 +34,39 @@ def _send_photo(user_id, token, message, file):
         photo=fileonserver["photo"],
         hash=fileonserver["hash"],
     )
-    attachment = f'photo{attachment[0]["owner_id"]}_{attachment[0]["id"]}'
+    openedfile.close()
+    return f'photo{attachment[0]["owner_id"]}_{attachment[0]["id"]}'
+
+
+def _save_doc(user_id, token):
+    txt = open('mrk.txt')
+    url = txt.readline()
+    openedfile = open('rasp/rasp.pdf', "rb")
+    files = {"file": openedfile}
+    data = api.docs.getMessagesUploadServer(type='doc', peer_id=user_id, access_token=token)
+    fileonserver = json.loads(
+        requests.post(
+            data["upload_url"],
+            files=files,
+        ).text
+    )
+    attachment = api.docs.save(
+        access_token=token,
+        file=fileonserver["file"],
+        title=url.split('/')[4].split('.')[0],
+        tags='MRK',
+    )
+    openedfile.close()
+    return f'doc{attachment[0]["owner_id"]}_{attachment[0]["id"]}'
+
+
+def _send_photo_with_doc(user_id, token, message, file):
+    photo = _save_photo(user_id, token, file)
+    pdf_file = _save_doc(user_id, token)
+    attachments = [photo, pdf_file]
     if message:
         api.messages.send(
-            access_token=token, user_id=user_id, message=message, attachment=attachment
+            access_token=token, user_id=user_id, message=message, attachment=attachments
         )
     else:
-        api.messages.send(access_token=token, user_id=user_id, attachment=attachment)
-    openedfile.close()
+        api.messages.send(access_token=token, user_id=user_id, attachment=attachments)
