@@ -17,11 +17,11 @@ def get_html(url):
 def parse(html):
     soup = BeautifulSoup(html, features="html.parser")
     div = soup.find('div', id='blockSidebar')
-    p_tag = div.find_all('p')[2]
+    p_tag = div.find_all('p')[3]
     url = p_tag.find('a').get('href')
-    if open('rasp/mrk.txt', 'r').read() == url:
+    if open('mrk.txt', 'r').read() == url:
         return
-    with open('rasp/mrk.txt', 'w') as f:
+    with open('mrk.txt', 'w') as f:
         f.write(url)
     return url
 
@@ -42,8 +42,8 @@ def download_file(download_url):
 def main():
     url = parse(get_html('http://www.mrk-bsuir.by'))
     if url:
-        download_file(url)
-        image.main()
+        # download_file(url)
+        # image.main()
         send_auto_rasp()
 
 

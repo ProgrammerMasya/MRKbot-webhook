@@ -39,7 +39,7 @@ def save_photo(user_id, token, file):
 
 
 def save_doc(user_id, token):
-    txt = open('rasp/mrk.txt')
+    txt = open('mrk.txt')
     url = txt.readline()
     openedfile = open('rasp/rasp.pdf', "rb")
     files = {"file": openedfile}
