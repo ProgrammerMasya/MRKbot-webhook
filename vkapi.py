@@ -9,7 +9,7 @@ api = vk.API(session, v=5.0)
 
 def send_message(user_id, token, message, attachment="", file=None):
     if file:
-        _send_photo_with_doc(user_id, token, message, file)
+        send_photo_with_doc(user_id, token, message, file)
     else:
         api.messages.send(
             access_token=token,
@@ -19,7 +19,7 @@ def send_message(user_id, token, message, attachment="", file=None):
         )
 
 
-def _save_photo(user_id, token, file):
+def save_photo(user_id, token, file):
     openedfile = open(file, "rb")
     files = {"file": openedfile}
     fileonserver = json.loads(
@@ -38,8 +38,8 @@ def _save_photo(user_id, token, file):
     return f'photo{attachment[0]["owner_id"]}_{attachment[0]["id"]}'
 
 
-def _save_doc(user_id, token):
-    txt = open('mrk.txt')
+def save_doc(user_id, token):
+    txt = open('rasp/mrk.txt')
     url = txt.readline()
     openedfile = open('rasp/rasp.pdf', "rb")
     files = {"file": openedfile}
@@ -60,9 +60,9 @@ def _save_doc(user_id, token):
     return f'doc{attachment[0]["owner_id"]}_{attachment[0]["id"]}'
 
 
-def _send_photo_with_doc(user_id, token, message, file):
-    photo = _save_photo(user_id, token, file)
-    pdf_file = _save_doc(user_id, token)
+def send_photo_with_doc(user_id, token, message, file):
+    photo = save_photo(user_id, token, file)
+    pdf_file = save_doc(user_id, token)
     attachments = [photo, pdf_file]
     if message:
         api.messages.send(

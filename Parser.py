@@ -19,9 +19,9 @@ def parse(html):
     div = soup.find('div', id='blockSidebar')
     p_tag = div.find_all('p')[2]
     url = p_tag.find('a').get('href')
-    if open('mrk.txt', 'r').read() == url:
+    if open('rasp/mrk.txt', 'r').read() == url:
         return
-    with open('mrk.txt', 'w') as f:
+    with open('rasp/mrk.txt', 'w') as f:
         f.write(url)
     return url
 
