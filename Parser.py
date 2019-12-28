@@ -42,8 +42,8 @@ def download_file(download_url):
 def main():
     url = parse(get_html('http://www.mrk-bsuir.by'))
     if url:
-        # download_file(url)
-        # image.main()
+        download_file(url)
+        image.main()
         send_auto_rasp()
 
 
