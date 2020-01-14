@@ -17,7 +17,7 @@ def get_html(url):
 def parse(html):
     soup = BeautifulSoup(html, features="html.parser")
     div = soup.find('div', id='blockSidebar')
-    p_tag = div.find_all('p')[3]
+    p_tag = div.find_all('p')[4]
     url = p_tag.find('a').get('href')
     if open('mrk.txt', 'r').read() == url:
         return
