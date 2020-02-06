@@ -10,7 +10,7 @@ def rasp(user_id, content):
 
 rasp_command = command_system.Command()
 
-rasp_command.keys = ['8к1111', '7к1191', '7к1591', '7к1391', '7к1111', '61191', '61591', '61391', 'страница 4']
+rasp_command.keys = ['9к9591', '9к9491', '8к3791', '8к3291', 'страница 4']
 rasp_command.description = "Расписание 4 страницы"
 rasp_command.file = True
 rasp_command.process = rasp
