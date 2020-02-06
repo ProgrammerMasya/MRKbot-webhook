@@ -24,11 +24,7 @@ def send_auto_rasp():
         try:
             a = str(person_data[0]).replace("(","").replace(")","").replace(",","")
             person_id = a
-            vk_obj.send_message(person_id, "ДАМЫ И ГОСПОДА, ОБЯЗАТЕЛЬНО ЗАЙДИТЕ ВСЕ СЮДА И ЗАРЕГЕСТРИРУЙТЕСЬ! ТУТ ВСЯ ИНФА, ЧТО ТАКОЕ МРК КОНФ, О ЧЕМ ОН, ЧТО ТАМ БУДЕТ И КОГДА!\n\n"
-                                           "https://mrcconf.github.io\n\n"
-                                           "Максимально распространяйте!\n\n"
-                                           "это будет ПУШКА КОНФЕРЕНЦИЯ 🤙🏻🤙🏻🤙🏻🤙🏻🤙🏻🤙🏻🤙🏻\n\n"
-                                           "РАЗНЕСЕМ МРК МОТИВАЦИЕЙ И УСПЕХОМ 🤟🏻", '')
+            vk_obj.send_message(person_id, "https://docs.google.com/forms/d/e/1FAIpQLSeo-7VWiNFqKgwkCTSPiH5wDKYGkxVePGtRHO86yNRtlFY16Q", '')
         except:
             pass
 
