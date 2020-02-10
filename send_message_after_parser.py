@@ -1,4 +1,4 @@
-from consts import USERS_IMAGES_FULL
+from get_groups import extract_text
 from app.model.vk.vk import Vk
 from settings import *
 from app.db.db import DB
@@ -20,11 +20,12 @@ def get_data():
 
 
 def send_auto_rasp():
+    users_images_full = extract_text('rasp/rasp.pdf')
     data = get_data()
     for person_data in data:
         try:
             person_id, group = person_data[0], person_data[1]
-            file = USERS_IMAGES_FULL.get(group)
+            file = users_images_full.get(group)
             vk_obj.send_message(person_id, "Получай", '', file)
         except:
             pass
