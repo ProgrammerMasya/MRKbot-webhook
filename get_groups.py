@@ -41,6 +41,6 @@ def extract_text(pdf_path):
         test.update({page_groups: f"images/{i}.jpeg"})
 
     users_images_full = {
-        group: value for key, value in test.items() for group in key
+        group.lower(): value for key, value in test.items() for group in key
     }
     return users_images_full
