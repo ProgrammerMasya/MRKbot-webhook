@@ -1,9 +1,10 @@
-from consts import USERS_IMAGES_FULL
+from get_groups import extract_text
 from app.model.vk.vk import Vk
 from settings import *
 from app.db.db import DB
 import vk
 
+USERS_IMAGES_FULL = extract_text('rasp/rasp.pdf')
 
 db_obj = DB(
     "dbname='masya' "
