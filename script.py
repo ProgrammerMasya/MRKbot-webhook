@@ -24,7 +24,20 @@ def send_auto_rasp():
         try:
             a = str(person_data[0]).replace("(","").replace(")","").replace(",","")
             person_id = a
-            vk_obj.send_message(person_id, "https://docs.google.com/forms/d/e/1FAIpQLSeo-7VWiNFqKgwkCTSPiH5wDKYGkxVePGtRHO86yNRtlFY16Q", '')
+            vk_obj.send_message(person_id, """
+                #КарантинКонф 23.05.2020 в 18:00 🤟🤟🤟
+                
+                ОНЛАЙН online-conf.github.io Бесплатно
+                
+                Прямое продолжение МРККонф🔥🔥🔥
+                (от студентов МРК)
+                
+                Максимально распространяйте!
+                
+                это будет ПУШКА КОНФА 😎😎😎 
+                
+                Supported by «МРК Бот Расписание»
+            """, '')
         except:
             pass
 
