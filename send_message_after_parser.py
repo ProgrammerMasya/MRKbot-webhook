@@ -24,7 +24,8 @@ def send_auto_rasp():
         try:
             person_id, group = person_data[0], person_data[1]
             file = users_images_full.get(group)
-            vk_obj.send_message(person_id, "Получай", '', file)
+            if file:
+                vk_obj.send_message(person_id, "Получай", '', file)
         except:
             pass
 
