@@ -4,7 +4,7 @@ import json
 import vk
 
 session = vk.Session()
-api = vk.API(session, v=5.0)
+api = vk.API(session, v=5.21)
 
 
 def send_message(user_id, token, message, attachment="", file=None):
